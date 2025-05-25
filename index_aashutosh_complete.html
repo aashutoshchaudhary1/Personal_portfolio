@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aashutosh Chaudhary | Web Development Enthusiast</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #514e4e;
+            --primary-dark: #050f0f;
+            --primary-light: #99f6e4;
+            --text-dark: #1f2937;
+            --text-light: #f9fafb;
+            --bg-light: #f9fafb;
+            --bg-dark: #111827;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        .primary-color {
+            color: var(--primary-color);
+        }
+        
+        .primary-bg {
+            background-color: var(--primary-color);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+        }
+        
+        .section {
+            padding: 5rem 1rem;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background-color: #e5e7eb;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .project-card {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            position: absolute;
+            left: -10px;
+            top: 5px;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 25px;
+            bottom: 0;
+            width: 2px;
+            background-color: var(--primary-color);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+            left: 10%;
+        }
+
+        /* For PDF optimization */
+        @media print {
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold flex items-center">
+                <span class="primary-color">Aashutosh</span>&nbsp;
+            </div>
+            <nav class="hidden md:flex space-x-2">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 py-20 flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 text-white mb-10 md:mb-0">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm Aashutosh Chaudhary</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6">Web Development Enthusiast</h2>
+                <p class="text-lg mb-8">I enjoy transforming ideas into reality through modern web technologies. Explore more in the About, Projects, and Contact sections.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="btn-primary">Get in Touch</a>
+                    <a href="#projects" class="border border-white text-white px-6 py-3 rounded-md font-medium hover:bg-white hover:text-teal-500 transition">View Work</a>
+                </div>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="rounded-full overflow-hidden border-4 border-white shadow-lg w-64 h-64">
+                    <img src="Aashu copy.jpg" alt="Aashutosh Chaudhary" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 pr-0 md:pr-8">
+                    <h3 class="text-2xl font-semibold mb-4">About Me?</h3>
+                    <p class="mb-4">I'm currently studying Information Technology and have a deep curiosity about how technology works. My interests include full-stack web development, problem-solving, and continuous learning. I aspire to become a proficient software developer and contribute meaningfully through collaboration and growth.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center bg-gray-100 rounded-full px-4 py-2">
+                            <i class="fas fa-map-marker-alt primary-color mr-2"></i>
+                            <span>Dang, Nepal</span>
+                        </div>
+                        <div class="flex items-center bg-gray-100 rounded-full px-4 py-2">
+                            <i class="fas fa-briefcase primary-color mr-2"></i>
+                            <span>Available for Freelance</span>
+                        </div>
+                        <div class="flex items-center bg-gray-100 rounded-full px-4 py-2">
+                            <i class="fas fa-language primary-color mr-2"></i>
+                            <span>English, Nepali, Hindi</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-100 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Personal Information</h3>
+                        <div class="space-y-3">
+                            <div class="flex">
+                                <div class="w-32 font-medium">Name:</div>
+                                <div>Aashutosh Chaudhary</div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-32 font-medium">Email (Preferred):</div>
+                                <div>aashutosh9818@gmail.com</div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-32 font-medium">Whatsapp</div>
+                                <div>+977-9818768403</div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-32 font-medium">Birthday:</div>
+                                <div>May 26, 2006</div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-32 font-medium">Degree:</div>
+                                <div>Pursuing Bachelor's in Information Technology</div>
+                            </div>
+                            <div class="flex">
+                                <div class="w-32 font-medium">Experience:</div>
+                                <div>1 years +</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">My Skills</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Design Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">UI/UX Design</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Data Visualization</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Wireframing</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">User Research</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Interaction Design</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Figma</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Adobe XD</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Sketch</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">HTML/CSS</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="font-medium">Prototyping</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="project-card">
+                    <div class="relative overflow-hidden pb-60">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/5_generated/0c483254-f87a-4ebf-9d2e-dd35e03b2b20_wm" alt="Data Visualization Dashboard" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-600 mb-4">A personal portfolio website that represents my work and identity online. Built using HTML, CSS, and deployed for public access.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded">UI Design</span>
+                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded">Data Visualization</span>
+                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded">Responsive Web</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-teal-600 hover:text-teal-800">
+                            View Case Study
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="relative overflow-hidden pb-60">
+                        <img src="https://cdn1.genspark.ai/user-upload-image/5_generated/f405c064-6897-409d-9d58-347c066ad2e6_wm" alt="Fitness Mobile App" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-2">FitTrack Mobile App</h3>
+                        <p class="text-gray-600 mb-4">A real-time task manager app using React and Firebase, allowing users to manage daily goals with authentication and live updates.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded">Mobile UI</span>
+                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded">iOS/Android</span>
+                            <span class="bg-teal-100 text-teal-800 text-xs font-medium px-2.5 py-0.5 rounded">User Experience</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-teal-600 hover:text-teal-800">
+                            View Case Study
+                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- More Projects -->
+            <div class="mt-12">
+                <h3 class="text-xl font-semibold mb-6">More Projects</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <h4 class="text-lg font-medium mb-2">E-commerce Redesign</h4>
+                        <p class="text-gray-600 mb-3">A full-stack blog platform with Node.js and MongoDB for content creation and user authentication.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-gray-200 text-gray-700 text-xs font-medium px-2 py-0.5 rounded">UX</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs font-medium px-2 py-0.5 rounded">E-commerce</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <h4 class="text-lg font-medium mb-2">Banking Dashboard</h4>
+                        <p class="text-gray-600 mb-3">Financial data visualization tool for personal banking customers with spending insights.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-gray-200 text-gray-700 text-xs font-medium px-2 py-0.5 rounded">FinTech</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs font-medium px-2 py-0.5 rounded">Data Viz</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition">
+                        <h4 class="text-lg font-medium mb-2">Health Monitoring App</h4>
+                        <p class="text-gray-600 mb-3">Remote patient monitoring system for healthcare providers with real-time alerts.</p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-gray-200 text-gray-700 text-xs font-medium px-2 py-0.5 rounded">Healthcare</span>
+                                <span class="bg-gray-200 text-gray-700 text-xs font-medium px-2 py-0.5 rounded">Mobile</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Work Experience</h2>
+            <div class="relative ml-8 border-l-2 border-teal-400 pl-8 space-y-12">
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold">Salesperson and Manager</h3>
+                                <p class="text-gray-600">ACC Books Stationery and Gift Shop (Family Business)</p>
+                            </div>
+                            <div class="bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full mt-2 md:mt-0">
+                                Jan 2020 - Present
+                            </div>
+                        </div>
+                        <p class="mb-4">Lead designer for enterprise data visualization products and mobile applications. Managed a team of 4 designers and collaborated closely with product and engineering teams.</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Redesigned flagship analytics dashboard, improving user engagement by 34%</li>
+                            <li>Created comprehensive design system used across 8 product lines</li>
+                            <li>Led user research initiatives resulting in 40% improvement in task completion rates</li>
+                            <li>Implemented design sprints methodology, reducing design cycle time by 28%</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold">Teacher and Management Team Member</h3>
+                                <p class="text-gray-600">Shining Path Public School (Family-Owned)</p>
+                            </div>
+                            <div class="bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full mt-2 md:mt-0">
+                                Mar 2023 - Present
+                            </div>
+                        </div>
+                        <p class="mb-4">Designed mobile applications focused on health and fitness tracking. Worked on all stages of product development from concept to launch.</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Designed UI for award-winning fitness app with over 2 million downloads</li>
+                            <li>Conducted user testing sessions and implemented feedback iterations</li>
+                            <li>Created interactive prototypes for stakeholder presentations</li>
+                            <li>Collaborated with marketing team to design promotional materials</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="timeline-dot"></div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                            <div>
+                                <h3 class="text-xl font-semibold">Web Developer Intern</h3>
+                                <p class="text-gray-600">Personal Coding Projects</p>
+                            </div>
+                            <div class="bg-teal-100 text-teal-800 text-sm font-medium px-3 py-1 rounded-full mt-2 md:mt-0">
+                                Jun 2024- Present
+                            </div>
+                        </div>
+                        <p class="mb-4">Worked on a variety of client projects across different industries, focusing on web and mobile interface design.</p>
+                        <ul class="list-disc pl-5 space-y-1 text-gray-700">
+                            <li>Designed interfaces for 12+ client projects including e-commerce and finance</li>
+                            <li>Created wireframes, mockups, and prototypes using Sketch and InVision</li>
+                            <li>Participated in client meetings and presentations</li>
+                            <li>Assisted senior designers with research and concept development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Education & Certifications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Academic Background</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-medium">Bachelor of Information Technology</h4>
+                                <span class="bg-teal-100 text-teal-800 text-sm font-medium px-2 py-0.5 rounded">2024- Present</span>
+                            </div>
+                            <p class="text-gray-700 mb-2">Model Institute of Technology (MIT), Nepal</p>
+                            <p class="text-gray-600">Thesis: "Data Visualization Patterns for Mobile Interfaces: Improving User Comprehension and Engagement"</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <div class="flex justify-between items-start mb-2">
+                                <h4 class="text-lg font-medium">Science (+2 Level) - Graduated in 2023</h4>
+                                <span class="bg-teal-100 text-teal-800 text-sm font-medium px-2 py-0.5 rounded">2021-2023</span>
+                            </div>
+                            <p class="text-gray-700 mb-2">Kathmandu Model COllege (KMC), Bagbazar, Kathmandu</p>
+                            <p class="text-gray-600">Major in Science and minor in computer sciecne.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-6">Professional Certifications</h3>
+                    <div class="space-y-6">
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <h4 class="text-lg font-medium mb-2">Google UX Design Professional Certificate</h4>
+                            <p class="text-gray-700 mb-2">Google</p>
+                            <div class="flex justify-between">
+                                <p class="text-gray-600">Credential ID: GUX2023781</p>
+                                <span class="text-gray-500">2024</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-6 rounded-lg shadow-sm">
+                            <h4 class="text-lg font-medium mb-2">Advanced Data Visualization Specialist</h4>
+                            <p class="text-gray-700 mb-2">Tableau</p>
+                            <div class="flex justify-between">
+                                <p class="text-gray-600">Credential ID: TDVS82930</p>
+                                <span class="text-gray-500">2024</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>s
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center">Contact Me</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="h-16 w-16 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-envelope text-teal-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Email (Preferred)</h3>
+                    <p class="text-gray-700">aashutosh9818@gmail.com</p>
+                    <a href="mailto:aashutosh9818@gmail.com" class="text-teal-600 hover:text-teal-800 mt-2 inline-block">Send a message</a>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="h-16 w-16 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-phone text-teal-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Whatsapp</h3>
+                    <p class="text-gray-700">+977-9818768403</p>
+                    <a href="tel:9818768403" class="text-teal-600 hover:text-teal-800 mt-2 inline-block">Call me</a>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm text-center">
+                    <div class="h-16 w-16 rounded-full bg-teal-100 flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-map-marker-alt text-teal-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Location</h3>
+                    <p class="text-gray-700">Dang, Nepal</p>
+                    <a href="https://maps.app.goo.gl/9hi2djyDk1xnWbnHA" class="text-teal-600 hover:text-teal-800 mt-2 inline-block">Location</a>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white p-8 rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-6 text-center">Let's Connect</h3>
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email (Preferred)</label>
+                            <input type="email" id="email" name="email" placeholder="Your email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Subject" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-700 mb-2">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Your message" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-transparent"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn-primary inline-flex items-center">
+                            <span>Send Message</span>
+                            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold mb-6 md:mb-0">
+                    <span class="text-teal-400">Aashutosh</span> 
+                </div>
+                <div class="flex space-x-6">
+                    <a href="www.linkedin.com/in/aashutosh-chaudhary-a947132a7 " class="text-gray-300 hover:text-teal-400">
+                        <i class="fab fa-linkedin text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-teal-400">
+                        <i class="fab fa-behance text-xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/aashutosh_chau/" class="text-gray-300 hover:text-teal-400">
+                        <i class="fab fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-300 hover:text-teal-400">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <hr class="border-gray-700 my-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">©️ 2025 Aashutosh Chaudhary. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#about" class="text-gray-400 hover:text-teal-400">About</a>
+                    <a href="#projects" class="text-gray-400 hover:text-teal-400">Projects</a>
+                    <a href="#contact" class="text-gray-400 hover:text-teal-400">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
